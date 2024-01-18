@@ -7,6 +7,6 @@ import org.springframework.http.ResponseEntity;
 public interface PaymentService {
 
     ResponseEntity<PaymentDtoResponse> reservePayment(Payment payment);
-    void makePayment(Double amount);
-    void cancelPaymentReservation(Double amount);
+    void makePayment(Long id);
+    void cancelPaymentReservation(Long id);
 }

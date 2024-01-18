@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
@@ -46,20 +47,23 @@ public class PaymentServiceImpl {
     }
 
 
+    public void makePayment(Long id) {
+        Optional<Payment> optionalPayment = paymentRepository.findById(id);
+        if (optionalPayment.isPresent()) {
+            Payment payment = optionalPayment.get();
+            payment.setStatus(PaymentStatus.COMPLETED);
+            paymentRepository.save(payment);
+        }
+    }
 
-//    public void makePayment(Double amount) {
-//        Payment payment = new Payment(null,amount, COMPLETED);
-//        paymentRepository.save(payment);
-//    }
 
-
-
-//    public void cancelPaymentReservation(Double amount) {
-//        Reservation reservation = reservationRepository.findByAmountAndStatus(amount, "RESERVED");
-//        if (reservation != null) {
-//            reservation.setStatus("CANCELED");
-//            reservationRepository.save(reservation);
-//        }
-//    }
+    public void cancelPaymentReservation(Long id) {
+        Optional<Payment> optionalPayment = paymentRepository.findById(id);
+        if (optionalPayment.isPresent()) {
+            Payment payment = optionalPayment.get();
+            payment.setStatus(PaymentStatus.CANCELLED);
+            paymentRepository.save(payment);
+        }
+    }
 
 }

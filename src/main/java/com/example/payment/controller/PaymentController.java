@@ -29,16 +29,16 @@ public class PaymentController {
         }
     }
 
-//    @PostMapping("/pay")
-//    public ResponseEntity<String> makePayment(@RequestBody Double amount) {
-//        paymentService.makePayment(amount);
-//        return ResponseEntity.ok("Payment made.");
-//    }
+    @PostMapping("/pay")
+    public ResponseEntity<String> makePayment(@RequestBody Long id) {
+        paymentService.makePayment(id);
+        return ResponseEntity.ok("Payment made.");
+    }
 
-//    @PostMapping("/cancel")
-//    public ResponseEntity<String> cancelPaymentReservation(@RequestBody Double amount) {
-//        paymentService.cancelPaymentReservation(amount);
-//        return ResponseEntity.ok("Payment reservation canceled.");
-//    }
+    @PostMapping("/cancel")
+    public ResponseEntity<String> cancelPaymentReservation(@RequestBody Long id) {
+        paymentService.cancelPaymentReservation(id);
+        return ResponseEntity.ok("Payment reservation canceled.");
+    }
 
 }
