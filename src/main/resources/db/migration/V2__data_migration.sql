@@ -4,7 +4,7 @@ VALUES ('John', 'Doe', 'johndoe@gmail.com', '1234567890'),
        ('Michael', 'Johnson', 'michaeljohnson@gmail.com', '5468790321');
 
 INSERT INTO accounts (number, client_id, balance, status)
-VALUES ('40817810000000000001', 1, 100.00, 'Active'),
+VALUES ('40817810000000000001', 1, 1000.00, 'Active'),
        ('987654321', 2, 500.00, 'Active'),
        ('546879032', 3, 2000.00, 'Inactive');
 

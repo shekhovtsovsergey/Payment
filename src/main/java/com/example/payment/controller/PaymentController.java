@@ -21,6 +21,7 @@ public class PaymentController {
 
     @PostMapping("/reserve")
     public ResponseEntity<PaymentDtoResponse> reservePayment(@RequestBody Payment payment) {
+        System.out.println("           reservePayment " + payment.toString());
         try {
             return ResponseEntity.ok(paymentService.reservePayment(payment));
         } catch (Exception e) {
